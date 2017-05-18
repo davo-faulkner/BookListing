@@ -8,6 +8,11 @@ import android.widget.Button;
 
 public class SearchActivity extends AppCompatActivity {
 
+    private String mQueryUrl;
+
+    public String getQueryUrl() {
+        return mQueryUrl;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +20,7 @@ public class SearchActivity extends AppCompatActivity {
 
         Button searchButton = (Button) findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent resultsIntent = new Intent(SearchActivity.this, ResultsActivity.class);
