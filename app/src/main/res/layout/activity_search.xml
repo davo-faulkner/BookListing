@@ -6,16 +6,12 @@
     android:orientation="vertical"
     tools:context="co.davo.booklisting.SearchActivity">
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
     <EditText
         android:id="@+id/search_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="160dp"
         android:hint="@string/enter_a_keyword" />
 
     <Button
@@ -25,10 +21,5 @@
         android:layout_below="@id/search_editText"
         android:layout_gravity="center_horizontal"
         android:text="@string/search" />
-
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="2"/>
 
 </LinearLayout>
