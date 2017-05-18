@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="co.davo.booklisting.SearchActivity">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <EditText
         android:id="@+id/search_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_a_keyword"
-        android:layout_centerInParent="true"/>
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/enter_a_keyword" />
 
     <Button
         android:id="@+id/search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/search"
         android:layout_below="@id/search_editText"
-        android:layout_centerHorizontal="true"/>
+        android:layout_gravity="center_horizontal"
+        android:text="@string/search" />
 
-</RelativeLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+</LinearLayout>
