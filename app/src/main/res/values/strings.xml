@@ -5,4 +5,5 @@
     <string name="search_google_books">Search Google Books</string>
     <string name="enter_a_keyword">Enter a keyword</string>
     <string name="search">Search</string>
+    <string name="results_label">Results</string>
 </resources>
