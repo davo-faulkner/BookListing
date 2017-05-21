@@ -1,4 +1,4 @@
-package co.davo.booklisting.BookLoader;
+package co.davo.booklisting;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
