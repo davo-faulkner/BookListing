@@ -47,7 +47,7 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
             mProgressBar.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         } else {
-            
+            //TODO Resume Here, Davo
         }
     }
     @Override
