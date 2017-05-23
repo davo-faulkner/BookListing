@@ -25,6 +25,10 @@ public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
 
     @Override
     public ArrayList<Book> loadInBackground() {
-        return null;
+        if (mUrl == null) {
+            return null;
+        }
+        ArrayList<Book> books = QueryUtils.extractBooks(mUrl);
+        return books;
     }
 }
