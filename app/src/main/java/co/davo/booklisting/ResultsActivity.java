@@ -2,12 +2,15 @@ package co.davo.booklisting;
 
 import android.app.LoaderManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -47,7 +50,22 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
             mProgressBar.setVisibility(View.GONE);
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         } else {
-            //TODO Resume Here, Davo
+            loaderManager.initLoader(BOOK_LOADER_ID, null, this);
+
+            bookListView.setAdapter(mBookAdapter);
+
+            bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Book currentBook = mBookAdapter.getItem(position);
+
+                    Uri bookUri = Uri.parse(currentBook.getmUrl());
+
+                    Intent websiteIntent = new Intent(Intent.ACTION_VIEW, bookUri);
+
+                    startActivity(websiteIntent);
+                }
+            });
         }
     }
     @Override
