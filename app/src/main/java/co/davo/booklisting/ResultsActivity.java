@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Book>> {
@@ -68,10 +67,12 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
             });
         }
     }
+
     @Override
     public Loader<ArrayList<Book>> onCreateLoader(int id, Bundle args) {
         return new BookLoader(this, SearchActivity.getQueryUrl());
     }
+
     @Override
     public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
         mProgressBar.setVisibility(View.GONE);
@@ -82,10 +83,11 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
 
         if (data != null && !data.isEmpty()) {
             mBookAdapter.addAll(data);
-
         }
+    }
+
     @Override
     public void onLoaderReset(Loader<ArrayList<Book>> loader) {
-
+        mBookAdapter.clear();
     }
 }
