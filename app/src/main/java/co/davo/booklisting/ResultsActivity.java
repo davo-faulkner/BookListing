@@ -74,8 +74,16 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
     }
     @Override
     public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
+        mProgressBar.setVisibility(View.GONE);
 
-    }
+        mEmptyStateTextView.setText(R.string.no_books_found);
+
+        mBookAdapter.clear();
+
+        if (data != null && !data.isEmpty()) {
+            mBookAdapter.addAll(data);
+
+        }
     @Override
     public void onLoaderReset(Loader<ArrayList<Book>> loader) {
 
