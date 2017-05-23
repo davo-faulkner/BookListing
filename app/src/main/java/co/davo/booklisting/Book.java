@@ -1,5 +1,8 @@
 package co.davo.booklisting;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Created by Davo on 5/18/2017.
  */
@@ -7,14 +10,14 @@ package co.davo.booklisting;
 public class Book {
 
     private String mTitle;
-    private String mAuthor;
+    private ArrayList<String> mAuthors;
     private int mPageCount;
-    private String mPublishedDate;
+    private Date mPublishedDate;
     private String mUrl;
 
-    public Book(String mTitle, String mAuthor, int mPageCount, String mPublishedDate, String mUrl) {
+    public Book(String mTitle, ArrayList<String> mAuthors, int mPageCount, Date mPublishedDate, String mUrl) {
         this.mTitle = mTitle;
-        this.mAuthor = mAuthor;
+        this.mAuthors = mAuthors;
         this.mPageCount = mPageCount;
         this.mPublishedDate = mPublishedDate;
         this.mUrl = mUrl;
@@ -25,8 +28,8 @@ public class Book {
     }
 
 
-    public String getmAuthor() {
-        return mAuthor;
+    public ArrayList<String> getmAuthors() {
+        return mAuthors;
     }
 
 
@@ -35,7 +38,7 @@ public class Book {
     }
 
 
-    public String getmPublishedDate() {
+    public Date getmPublishedDate() {
         return mPublishedDate;
     }
 
