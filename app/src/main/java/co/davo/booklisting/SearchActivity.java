@@ -10,9 +10,9 @@ import android.widget.EditText;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private String mQueryUrl;
+    private static String mQueryUrl;
 
-    public String getQueryUrl() {
+    public static String getQueryUrl() {
         return mQueryUrl;
     }
     @Override

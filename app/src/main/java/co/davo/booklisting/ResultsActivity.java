@@ -70,7 +70,7 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
     }
     @Override
     public Loader<ArrayList<Book>> onCreateLoader(int id, Bundle args) {
-        return null;
+        return new BookLoader(this, SearchActivity.getQueryUrl());
     }
     @Override
     public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
