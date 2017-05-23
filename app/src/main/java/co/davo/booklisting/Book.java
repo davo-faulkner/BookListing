@@ -14,37 +14,41 @@ public class Book {
     private int mPageCount;
     private Date mPublishedDate;
     private String mUrl;
+    private String mDescription;
 
-    public Book(String mTitle, ArrayList<String> mAuthors, int mPageCount, Date mPublishedDate, String mUrl) {
-        this.mTitle = mTitle;
-        this.mAuthors = mAuthors;
-        this.mPageCount = mPageCount;
-        this.mPublishedDate = mPublishedDate;
-        this.mUrl = mUrl;
+    public Book(String title, ArrayList<String> authors, int pageCount, Date publishedDate, String url, String description) {
+        this.mTitle = title;
+        this.mAuthors = authors;
+        this.mPageCount = pageCount;
+        this.mPublishedDate = publishedDate;
+        this.mUrl = url;
+        this.mDescription = description;
     }
 
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
 
-    public ArrayList<String> getmAuthors() {
+    public ArrayList<String> getAuthors() {
         return mAuthors;
     }
 
 
-    public int getmPageCount() {
+    public int getPageCount() {
         return mPageCount;
     }
 
 
-    public Date getmPublishedDate() {
+    public Date getPublishedDate() {
         return mPublishedDate;
     }
 
 
-    public String getmUrl() {
+    public String getUrl() {
         return mUrl;
     }
-
+    public String getDescription() {
+        return mDescription;
+    }
 }
