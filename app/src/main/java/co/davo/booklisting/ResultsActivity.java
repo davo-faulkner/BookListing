@@ -58,7 +58,7 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Book currentBook = mBookAdapter.getItem(position);
 
-                    Uri bookUri = Uri.parse(currentBook.getmUrl());
+                    Uri bookUri = Uri.parse(currentBook.getUrl());
 
                     Intent websiteIntent = new Intent(Intent.ACTION_VIEW, bookUri);
 
