@@ -4,28 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingEnd="16dp"
+    android:paddingEnd="32dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:paddingStart="32dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
 
     <TextView
         android:id="@+id/title"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textColor="@color/colorTitle"
+        android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Title"
-        android:layout_marginTop="16dp"/>
+        tools:text="Title"/>
 
     <TextView
         android:id="@+id/subtitle"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textColor="@color/colorSubtitle"
+        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Subtitle"/>
@@ -33,8 +34,10 @@
     <TextView
         android:id="@+id/author"
         android:fontFamily="sans-serif"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textColor="@color/colorAuthor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Author Names" />
@@ -42,7 +45,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
         <TextView
@@ -50,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/colorPublishedDateAndPageCount"
             tools:text="Published Date" />
 
         <TextView
@@ -57,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/colorPublishedDateAndPageCount"
             android:layout_marginLeft="8dp"
             tools:text="Page Count" />
 
@@ -68,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/colorDescription"
         tools:text="Description"/>
 
 </LinearLayout>
