@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -40,14 +41,14 @@ public class BookAdapter extends ArrayAdapter<Book> {
         for (int i = 0; i < authors.size(); i++) {
             authorsString = authorsString + currentBook.getAuthors().get(i);
             if (authors.size() - i != 1) {
-                authorsString = authorsString + "\n";
+                authorsString = authorsString + ", ";
             }
         }
         authorTextView.setText(authorsString);
 
         TextView publishedDateTextView = (TextView) listItemView.findViewById(R.id.published_date);
-        String publishedDateString = "";
-        publishedDateTextView.setText("Jan 1, 1970");
+        SimpleDateFormat publishedDateFormat = new SimpleDateFormat("MMM d, yyyy");
+        publishedDateTextView.setText("Published " + publishedDateFormat.format(currentBook.getPublishedDate()));
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
         pageCountTextView.setText(currentBook.getPageCount() + " pages");
