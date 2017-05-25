@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorTitle">#000000</color>
+    <color name="colorSubtitle">#555555</color>
+    <color name="colorAuthor">#999999</color>
+    <color name="colorPublishedDateAndPageCount">#555555</color>
+    <color name="colorDescription">#000000</color>
 </resources>
