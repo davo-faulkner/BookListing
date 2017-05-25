@@ -11,16 +11,30 @@
 
     <TextView
         android:id="@+id/title"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Book Name"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/darker_gray"/>
+        tools:text="Title"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Subtitle"/>
 
     <TextView
         android:id="@+id/author"
+        android:fontFamily="sans-serif"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Author Names" />
@@ -28,18 +42,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/published_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             tools:text="Published Date" />
 
         <TextView
             android:id="@+id/page_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginLeft="8dp"
             tools:text="Page Count" />
 
     </LinearLayout>
@@ -48,7 +66,8 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Description"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        tools:text="Description"/>
 
 </LinearLayout>
