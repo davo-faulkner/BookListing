@@ -48,7 +48,7 @@ public final class QueryUtils {
                 SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd");
                 Date publishedDate = dateParser.parse(publishedDateString);
                 String url = volumeInfo.getString("infoLink");
-                String description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more info)";
+                String description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
 
                 books.add(new Book(title, authors, pageCount, publishedDate, url, description));
             }

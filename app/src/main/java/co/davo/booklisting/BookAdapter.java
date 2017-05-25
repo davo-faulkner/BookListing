@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -47,11 +48,12 @@ public class BookAdapter extends ArrayAdapter<Book> {
         authorTextView.setText(authorsString);
 
         TextView publishedDateTextView = (TextView) listItemView.findViewById(R.id.published_date);
-        SimpleDateFormat publishedDateFormat = new SimpleDateFormat("MMM d, yyyy");
-        publishedDateTextView.setText("Published " + publishedDateFormat.format(currentBook.getPublishedDate()));
+        SimpleDateFormat publishedDateFormatter = new SimpleDateFormat("MMM d, yyyy");
+        publishedDateTextView.setText("Published " + publishedDateFormatter.format(currentBook.getPublishedDate()));
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
-        pageCountTextView.setText(currentBook.getPageCount() + " pages");
+        DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
+        pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " pages");
 
         TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.description);
         descriptionTextView.setText(currentBook.getDescription());
