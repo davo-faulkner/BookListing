@@ -10,6 +10,7 @@ import java.util.Date;
 public class Book {
 
     private String mTitle;
+    private String mSubtitle;
     private ArrayList<String> mAuthors;
     private int mPageCount;
     private Date mPublishedDate;
@@ -27,6 +28,10 @@ public class Book {
 
     public String getTitle() {
         return mTitle;
+    }
+
+    public String getSubtitle() {
+        return mSubtitle;
     }
 
 

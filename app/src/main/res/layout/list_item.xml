@@ -11,9 +11,13 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Book Name" />
+        tools:text="Book Name"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:background="@android:color/darker_gray"/>
 
     <TextView
         android:id="@+id/author"
@@ -44,6 +48,7 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Description" />
+        tools:text="Description"
+        android:layout_marginBottom="16dp" />
 
 </LinearLayout>
