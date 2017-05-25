@@ -38,6 +38,7 @@ public final class QueryUtils {
                 JSONObject currentBook = bookArray.getJSONObject(i);
                 JSONObject volumeInfo = currentBook.getJSONObject("volumeInfo");
                 String title = volumeInfo.getString("title");
+                String subtitle = volumeInfo.getString("subtitle");
                 JSONArray authorsArray = volumeInfo.getJSONArray("authors");
                 ArrayList<String> authors = new ArrayList<>();
                 for (int j = 0; j < authorsArray.length(); j++) {
@@ -50,7 +51,7 @@ public final class QueryUtils {
                 String url = volumeInfo.getString("infoLink");
                 String description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
 
-                books.add(new Book(title, authors, pageCount, publishedDate, url, description));
+                books.add(new Book(title, subtitle, authors, pageCount, publishedDate, url, description));
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the book JSON results", e);

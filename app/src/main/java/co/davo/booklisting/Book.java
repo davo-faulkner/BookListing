@@ -17,8 +17,9 @@ public class Book {
     private String mUrl;
     private String mDescription;
 
-    public Book(String title, ArrayList<String> authors, int pageCount, Date publishedDate, String url, String description) {
+    public Book(String title, String subtitle, ArrayList<String> authors, int pageCount, Date publishedDate, String url, String description) {
         this.mTitle = title;
+        this.mSubtitle = subtitle;
         this.mAuthors = authors;
         this.mPageCount = pageCount;
         this.mPublishedDate = publishedDate;
