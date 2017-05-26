@@ -50,15 +50,22 @@ public final class QueryUtils {
                 for (int j = 0; j < authorsArray.length(); j++) {
                     authors.add(authorsArray.getString(j));
                 }
-                int pageCount = volumeInfo.getInt("pageCount");
-                String publishedDateString = volumeInfo.getString("publishedDate");
-                SimpleDateFormat dateParser;
-                if (publishedDateString.length() == 4) {
-                    dateParser = new SimpleDateFormat("yyyy");
-                } else {
-                    dateParser = new SimpleDateFormat("yyyy-MM-dd");
+                int pageCount = 0;
+                if (volumeInfo.has("pageCount")) {
+                    pageCount = volumeInfo.getInt("pageCount");
                 }
-                Date publishedDate = dateParser.parse(publishedDateString);
+                String publishedDateString;
+                Date publishedDate = new Date();
+                if (volumeInfo.has("publishedDate")) {
+                    publishedDateString = volumeInfo.getString("publishedDate");
+                    SimpleDateFormat dateParser;
+                    if (publishedDateString.length() == 4) {
+                        dateParser = new SimpleDateFormat("yyyy");
+                    } else {
+                        dateParser = new SimpleDateFormat("yyyy-MM-dd");
+                    }
+                    publishedDate = dateParser.parse(publishedDateString);
+                }
                 String url = volumeInfo.getString("infoLink");
                 String description = "";
                 if (volumeInfo.has("description")) {
