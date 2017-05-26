@@ -72,8 +72,12 @@ public class BookAdapter extends ArrayAdapter<Book> {
         }
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
-        DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
-        pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " pages");
+        if (currentBook.getPageCount() ==0) {
+            pageCountTextView.setVisibility(View.GONE);
+        } else {
+            DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
+            pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " pages");
+        }
 
         TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.description);
         if (currentBook.getDescription() == "") {
