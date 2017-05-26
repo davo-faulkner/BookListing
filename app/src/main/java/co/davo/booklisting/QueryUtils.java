@@ -66,7 +66,10 @@ public final class QueryUtils {
                     }
                     publishedDate = dateParser.parse(publishedDateString);
                 }
-                String url = volumeInfo.getString("infoLink");
+                String url = "";
+                if (volumeInfo.has("infoLink")) {
+                    url = volumeInfo.getString("infoLink");
+                }
                 String description = "";
                 if (volumeInfo.has("description")) {
                     if (volumeInfo.getString("description").length() > 255 ) {
