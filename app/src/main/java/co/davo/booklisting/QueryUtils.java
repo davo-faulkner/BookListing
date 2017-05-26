@@ -38,18 +38,36 @@ public final class QueryUtils {
                 JSONObject currentBook = bookArray.getJSONObject(i);
                 JSONObject volumeInfo = currentBook.getJSONObject("volumeInfo");
                 String title = volumeInfo.getString("title");
-                String subtitle = volumeInfo.getString("subtitle");
-                JSONArray authorsArray = volumeInfo.getJSONArray("authors");
+                String subtitle = "";
+                if (volumeInfo.has("subtitle")) {
+                    subtitle = volumeInfo.getString("subtitle");
+                }
+                JSONArray authorsArray = new JSONArray();
+                if (volumeInfo.has("authors")) {
+                    authorsArray = volumeInfo.getJSONArray("authors");
+                }
                 ArrayList<String> authors = new ArrayList<>();
                 for (int j = 0; j < authorsArray.length(); j++) {
                     authors.add(authorsArray.getString(j));
                 }
                 int pageCount = volumeInfo.getInt("pageCount");
                 String publishedDateString = volumeInfo.getString("publishedDate");
-                SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat dateParser;
+                if (publishedDateString.length() == 4) {
+                    dateParser = new SimpleDateFormat("yyyy");
+                } else {
+                    dateParser = new SimpleDateFormat("yyyy-MM-dd");
+                }
                 Date publishedDate = dateParser.parse(publishedDateString);
                 String url = volumeInfo.getString("infoLink");
-                String description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
+                String description = "";
+                if (volumeInfo.has("description")) {
+                    if (volumeInfo.getString("description").length() > 255 ) {
+                        description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
+                    } else {
+                        description = volumeInfo.getString("description") + " (Tap for more)";
+                    }
+                }
 
                 books.add(new Book(title, subtitle, authors, pageCount, publishedDate, url, description));
             }
