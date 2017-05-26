@@ -59,12 +59,16 @@ public final class QueryUtils {
                 String publishedDateString;
                 Date publishedDate = null;
                 boolean hasPublishedYear = false;
+                boolean hasPublishedMonth = false;
                 if (volumeInfo.has("publishedDate")) {
                     publishedDateString = volumeInfo.getString("publishedDate");
                     SimpleDateFormat dateParser;
                     if (publishedDateString.length() == 4) {
                         dateParser = new SimpleDateFormat("yyyy");
                         hasPublishedYear = true;
+                    } else if (publishedDateString.length() == 7) {
+                        dateParser = new SimpleDateFormat("yyyy-MM");
+                        hasPublishedMonth = true;
                     } else {
                         dateParser = new SimpleDateFormat("yyyy-MM-dd");
                     }
@@ -83,7 +87,7 @@ public final class QueryUtils {
                     }
                 }
 
-                books.add(new Book(title, subtitle, authors, pageCount, publishedDate, hasPublishedYear, url, description));
+                books.add(new Book(title, subtitle, authors, pageCount, publishedDate, hasPublishedYear, hasPublishedMonth, url, description));
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the book JSON results", e);
