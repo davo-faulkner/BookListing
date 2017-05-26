@@ -62,9 +62,12 @@ public class BookAdapter extends ArrayAdapter<Book> {
         } else {
             SimpleDateFormat publishedDateFormatter = new SimpleDateFormat("MMM d, yyyy");
             SimpleDateFormat publishedYearFormatter = new SimpleDateFormat("yyyy");
+            SimpleDateFormat publishedMonthFormatter = new SimpleDateFormat("MMM yyyy");
             String publishedDateString = "";
             if (currentBook.getHasPublishedYear() == true) {
                 publishedDateString = publishedYearFormatter.format(currentBook.getPublishedDate());
+            } else if (currentBook.getHasPublishedMonth() == true) {
+                publishedDateString = publishedMonthFormatter.format(currentBook.getPublishedDate());
             } else {
                 publishedDateString = publishedDateFormatter.format(currentBook.getPublishedDate());
             }
@@ -72,8 +75,8 @@ public class BookAdapter extends ArrayAdapter<Book> {
         }
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
-        if (currentBook.getPageCount() ==0) {
-            pageCountTextView.setVisibility(View.GONE);
+        if (currentBook.getPageCount() == 0) {
+            pageCountTextView.setVisibility(View.INVISIBLE);
         } else {
             DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
             pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " pages");
