@@ -15,16 +15,18 @@ public class Book {
     private int mPageCount;
     private Date mPublishedDate;
     private boolean mHasPublishedYear;
+    private boolean mHasPublishedMonth;
     private String mUrl;
     private String mDescription;
 
-    public Book(String title, String subtitle, ArrayList<String> authors, int pageCount, Date publishedDate, boolean hasPublishedyear, String url, String description) {
+    public Book(String title, String subtitle, ArrayList<String> authors, int pageCount, Date publishedDate, boolean hasPublishedyear, boolean hasPublishedMonth, String url, String description) {
         this.mTitle = title;
         this.mSubtitle = subtitle;
         this.mAuthors = authors;
         this.mPageCount = pageCount;
         this.mPublishedDate = publishedDate;
         this.mHasPublishedYear = hasPublishedyear;
+        this.mHasPublishedMonth = hasPublishedMonth;
         this.mUrl = url;
         this.mDescription = description;
     }
@@ -51,6 +53,10 @@ public class Book {
 
     public boolean getHasPublishedYear() {
         return mHasPublishedYear;
+    }
+
+    public  boolean getHasPublishedMonth() {
+        return mHasPublishedMonth;
     }
 
     public String getUrl() {
