@@ -1,9 +1,11 @@
 package co.davo.booklisting;
 
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,12 +57,14 @@ public final class QueryUtils {
                     pageCount = volumeInfo.getInt("pageCount");
                 }
                 String publishedDateString;
-                Date publishedDate = new Date();
+                Date publishedDate = null;
+                boolean hasPublishedYear = false;
                 if (volumeInfo.has("publishedDate")) {
                     publishedDateString = volumeInfo.getString("publishedDate");
                     SimpleDateFormat dateParser;
                     if (publishedDateString.length() == 4) {
                         dateParser = new SimpleDateFormat("yyyy");
+                        hasPublishedYear = true;
                     } else {
                         dateParser = new SimpleDateFormat("yyyy-MM-dd");
                     }
@@ -72,14 +76,14 @@ public final class QueryUtils {
                 }
                 String description = "";
                 if (volumeInfo.has("description")) {
-                    if (volumeInfo.getString("description").length() > 255 ) {
+                    if (volumeInfo.getString("description").length() > 255) {
                         description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
                     } else {
                         description = volumeInfo.getString("description") + " (Tap for more)";
                     }
                 }
 
-                books.add(new Book(title, subtitle, authors, pageCount, publishedDate, url, description));
+                books.add(new Book(title, subtitle, authors, pageCount, publishedDate, hasPublishedYear, url, description));
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the book JSON results", e);

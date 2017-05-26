@@ -15,6 +15,7 @@ public class SearchActivity extends AppCompatActivity {
     public static String getQueryUrl() {
         return mQueryUrl;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

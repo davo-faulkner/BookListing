@@ -11,11 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/search_google_books"
         android:textColor="@color/colorTitle"
         android:textSize="22sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        android:text="@string/search_google_books"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/search_editText"

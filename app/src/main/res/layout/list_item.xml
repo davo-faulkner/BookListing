@@ -4,42 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingBottom="16dp"
     android:paddingEnd="32dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingStart="32dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
+    android:paddingTop="16dp">
 
     <TextView
         android:id="@+id/title"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        android:textColor="@color/colorTitle"
-        android:textSize="22sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Title"/>
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorTitle"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/subtitle"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        android:textColor="@color/colorSubtitle"
-        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Subtitle"/>
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorSubtitle"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Subtitle" />
 
     <TextView
         android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:textColor="@color/colorAuthor"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         tools:text="Author Names" />
 
     <LinearLayout
@@ -51,17 +51,19 @@
             android:id="@+id/published_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:textColor="@color/colorPublishedDateAndPageCount"
+            android:textStyle="bold"
             tools:text="Published Date" />
 
         <TextView
             android:id="@+id/page_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="@color/colorPublishedDateAndPageCount"
             android:layout_marginLeft="8dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorPublishedDateAndPageCount"
+            android:textStyle="bold"
             tools:text="Page Count" />
 
     </LinearLayout>
@@ -70,9 +72,10 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:textColor="@color/colorDescription"
-        tools:text="Description"/>
+        tools:text="Description" />
 
 </LinearLayout>
