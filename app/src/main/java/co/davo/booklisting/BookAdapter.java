@@ -60,9 +60,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
         if (currentBook.getPublishedDate() == null) {
             publishedDateTextView.setVisibility(View.GONE);
         } else {
-            SimpleDateFormat publishedDateFormatter = new SimpleDateFormat("MMM d, yyyy");
+            SimpleDateFormat publishedDateFormatter = new SimpleDateFormat("MMMM d, yyyy");
             SimpleDateFormat publishedYearFormatter = new SimpleDateFormat("yyyy");
-            SimpleDateFormat publishedMonthFormatter = new SimpleDateFormat("MMM yyyy");
+            SimpleDateFormat publishedMonthFormatter = new SimpleDateFormat("MMMM yyyy");
             String publishedDateString = "";
             if (currentBook.getHasPublishedYear() == true) {
                 publishedDateString = publishedYearFormatter.format(currentBook.getPublishedDate());
