@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Book>> {
-
+    public static final String LOG_TAG = ResultsActivity.class.getName();
     private static final int BOOK_LOADER_ID = 1;
     private TextView mEmptyStateTextView;
     private ProgressBar mProgressBar;

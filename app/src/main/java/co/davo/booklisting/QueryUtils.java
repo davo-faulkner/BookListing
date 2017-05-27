@@ -19,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static co.davo.booklisting.ResultsActivity.LOG_TAG;
+
 /**
  * Created by Davo on 5/18/2017.
  */
@@ -90,9 +92,9 @@ public final class QueryUtils {
                 books.add(new Book(title, subtitle, authors, pageCount, publishedDate, hasPublishedYear, hasPublishedMonth, url, description));
             }
         } catch (JSONException e) {
-            Log.e("QueryUtils", "Problem parsing the book JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the book JSON results", e);
         } catch (ParseException e) {
-            Log.e("QueryUtils", "Problem parsing the Date", e);
+            Log.e(LOG_TAG, "Problem parsing the Date", e);
         }
         return books;
     }
@@ -103,7 +105,7 @@ public final class QueryUtils {
         try {
             booksJsonString = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e("QueryUtils", "Error closing input stream", e);
+            Log.e(LOG_TAG, "Error closing input stream", e);
         }
         return booksJsonString;
     }
@@ -125,10 +127,10 @@ public final class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e("QueryUtils", "Error response code: " + urlConnection.getResponseCode());
+                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e("QueryUtils", "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -159,7 +161,7 @@ public final class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-            Log.e("QueryUtils", "Error creating URL", e);
+            Log.e(LOG_TAG, "Error creating URL", e);
         }
         return url;
     }
