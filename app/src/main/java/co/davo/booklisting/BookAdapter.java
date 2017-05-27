@@ -71,7 +71,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
             } else {
                 publishedDateString = publishedDateFormatter.format(currentBook.getPublishedDate());
             }
-            publishedDateTextView.setText(R.string.published + " " + publishedDateString);
+            publishedDateTextView.setText(getContext().getString(R.string.published) + " " + publishedDateString);
         }
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
@@ -79,7 +79,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
             pageCountTextView.setVisibility(View.GONE);
         } else {
             DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
-            pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " " + R.string.pages);
+            pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " " + getContext().getString(R.string.pages));
         }
 
         TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.description);
