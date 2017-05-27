@@ -26,6 +26,15 @@ import static co.davo.booklisting.ResultsActivity.LOG_TAG;
  */
 
 public final class QueryUtils {
+    private static final String KEY_ITEMS = "items";
+    private static final String KEY_VOLUME_INFO = "volumeInfo";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_SUBTITLE = "subtitle";
+    private static final String KEY_AUTHORS = "authors";
+    private static final String KEY_PAGE_COUNT = "pageCount";
+    private static final String KEY_PUBLISHED_DATE = "publishedDate";
+    private static final String KEY_URL = "infoLink";
+    private static final String KEY_DESCRIPTION = "description";
 
     private QueryUtils() {
     }
@@ -37,33 +46,33 @@ public final class QueryUtils {
 
         try {
             JSONObject baseJsonResponse = new JSONObject(booksJsonString);
-            JSONArray bookArray = baseJsonResponse.getJSONArray("items");
+            JSONArray bookArray = baseJsonResponse.getJSONArray(KEY_ITEMS);
             for (int i = 0; i < bookArray.length(); i++) {
                 JSONObject currentBook = bookArray.getJSONObject(i);
-                JSONObject volumeInfo = currentBook.getJSONObject("volumeInfo");
-                String title = volumeInfo.getString("title");
+                JSONObject volumeInfo = currentBook.getJSONObject(KEY_VOLUME_INFO);
+                String title = volumeInfo.getString(KEY_TITLE);
                 String subtitle = "";
-                if (volumeInfo.has("subtitle")) {
-                    subtitle = volumeInfo.getString("subtitle");
+                if (volumeInfo.has(KEY_SUBTITLE)) {
+                    subtitle = volumeInfo.getString(KEY_SUBTITLE);
                 }
                 JSONArray authorsArray = new JSONArray();
-                if (volumeInfo.has("authors")) {
-                    authorsArray = volumeInfo.getJSONArray("authors");
+                if (volumeInfo.has(KEY_AUTHORS)) {
+                    authorsArray = volumeInfo.getJSONArray(KEY_AUTHORS);
                 }
                 ArrayList<String> authors = new ArrayList<>();
                 for (int j = 0; j < authorsArray.length(); j++) {
                     authors.add(authorsArray.getString(j));
                 }
                 int pageCount = 0;
-                if (volumeInfo.has("pageCount")) {
-                    pageCount = volumeInfo.getInt("pageCount");
+                if (volumeInfo.has(KEY_PAGE_COUNT)) {
+                    pageCount = volumeInfo.getInt(KEY_PAGE_COUNT);
                 }
                 String publishedDateString;
                 Date publishedDate = null;
                 boolean hasPublishedYear = false;
                 boolean hasPublishedMonth = false;
-                if (volumeInfo.has("publishedDate")) {
-                    publishedDateString = volumeInfo.getString("publishedDate");
+                if (volumeInfo.has(KEY_PUBLISHED_DATE)) {
+                    publishedDateString = volumeInfo.getString(KEY_PUBLISHED_DATE);
                     SimpleDateFormat dateParser;
                     if (publishedDateString.length() == 4) {
                         dateParser = new SimpleDateFormat("yyyy");
@@ -77,15 +86,15 @@ public final class QueryUtils {
                     publishedDate = dateParser.parse(publishedDateString);
                 }
                 String url = "";
-                if (volumeInfo.has("infoLink")) {
-                    url = volumeInfo.getString("infoLink");
+                if (volumeInfo.has(KEY_URL)) {
+                    url = volumeInfo.getString(KEY_URL);
                 }
                 String description = "";
-                if (volumeInfo.has("description")) {
-                    if (volumeInfo.getString("description").length() > 255) {
-                        description = volumeInfo.getString("description").substring(0, 255) + "...(Tap for more)";
+                if (volumeInfo.has(KEY_DESCRIPTION)) {
+                    if (volumeInfo.getString(KEY_DESCRIPTION).length() > 255) {
+                        description = volumeInfo.getString(KEY_DESCRIPTION).substring(0, 255) + "...(Tap for more)";
                     } else {
-                        description = volumeInfo.getString("description") + " (Tap for more)";
+                        description = volumeInfo.getString(KEY_DESCRIPTION) + " (Tap for more)";
                     }
                 }
 
