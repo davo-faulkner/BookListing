@@ -64,9 +64,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
             SimpleDateFormat publishedYearFormatter = new SimpleDateFormat("yyyy");
             SimpleDateFormat publishedMonthFormatter = new SimpleDateFormat("MMMM yyyy");
             String publishedDateString = "";
-            if (currentBook.getHasPublishedYear() == true) {
+            if (currentBook.getHasPublishedYear()) {
                 publishedDateString = publishedYearFormatter.format(currentBook.getPublishedDate());
-            } else if (currentBook.getHasPublishedMonth() == true) {
+            } else if (currentBook.getHasPublishedMonth()) {
                 publishedDateString = publishedMonthFormatter.format(currentBook.getPublishedDate());
             } else {
                 publishedDateString = publishedDateFormatter.format(currentBook.getPublishedDate());
