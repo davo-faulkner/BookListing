@@ -6,4 +6,6 @@
     <string name="enter_a_keyword">Enter a keyword</string>
     <string name="search">Search</string>
     <string name="results_label">Results</string>
+    <string name="published">Published</string>
+    <string name="pages">pages</string>
 </resources>

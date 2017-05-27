@@ -71,15 +71,15 @@ public class BookAdapter extends ArrayAdapter<Book> {
             } else {
                 publishedDateString = publishedDateFormatter.format(currentBook.getPublishedDate());
             }
-            publishedDateTextView.setText("Published " + publishedDateString);
+            publishedDateTextView.setText(R.string.published + " " + publishedDateString);
         }
 
         TextView pageCountTextView = (TextView) listItemView.findViewById(R.id.page_count);
         if (currentBook.getPageCount() == 0) {
-            pageCountTextView.setVisibility(View.INVISIBLE);
+            pageCountTextView.setVisibility(View.GONE);
         } else {
             DecimalFormat pageCountFormatter = new DecimalFormat("#,###,###");
-            pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " pages");
+            pageCountTextView.setText(pageCountFormatter.format(currentBook.getPageCount()) + " " + R.string.pages);
         }
 
         TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.description);
