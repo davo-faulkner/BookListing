@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class SearchActivity extends AppCompatActivity {
-
+    private static final String BASE_QUERY_URL = "https://www.googleapis.com/books/v1/volumes?q=";
+    private static final String MAX_RESULTS_URL_FRAGMENT = "&maxResults=10";
     private static String mQueryUrl;
 
     public static String getQueryUrl() {
@@ -29,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mQueryUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchEditText.getText().toString() + "&maxResults=10";
+                mQueryUrl = BASE_QUERY_URL + searchEditText.getText().toString() + MAX_RESULTS_URL_FRAGMENT;
 
                 Intent resultsIntent = new Intent(SearchActivity.this, ResultsActivity.class);
                 startActivity(resultsIntent);
