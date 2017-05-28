@@ -9,61 +9,61 @@ import java.util.Date;
 
 public class Book {
 
-    private String mTitle;
-    private String mSubtitle;
-    private ArrayList<String> mAuthors;
-    private int mPageCount;
-    private Date mPublishedDate;
-    private boolean mHasPublishedYear;
-    private boolean mHasPublishedMonth;
-    private String mUrl;
-    private String mDescription;
+    private String title;
+    private String subtitle;
+    private ArrayList<String> authors;
+    private int pageCount;
+    private Date publishedDate;
+    private boolean hasPublishedYear;
+    private boolean hasPublishedMonth;
+    private String url;
+    private String description;
 
     public Book(String title, String subtitle, ArrayList<String> authors, int pageCount, Date publishedDate, boolean hasPublishedyear, boolean hasPublishedMonth, String url, String description) {
-        this.mTitle = title;
-        this.mSubtitle = subtitle;
-        this.mAuthors = authors;
-        this.mPageCount = pageCount;
-        this.mPublishedDate = publishedDate;
-        this.mHasPublishedYear = hasPublishedyear;
-        this.mHasPublishedMonth = hasPublishedMonth;
-        this.mUrl = url;
-        this.mDescription = description;
+        this.title = title;
+        this.subtitle = subtitle;
+        this.authors = authors;
+        this.pageCount = pageCount;
+        this.publishedDate = publishedDate;
+        this.hasPublishedYear = hasPublishedyear;
+        this.hasPublishedMonth = hasPublishedMonth;
+        this.url = url;
+        this.description = description;
     }
 
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     public String getSubtitle() {
-        return mSubtitle;
+        return subtitle;
     }
 
     public ArrayList<String> getAuthors() {
-        return mAuthors;
+        return authors;
     }
 
     public int getPageCount() {
-        return mPageCount;
+        return pageCount;
     }
 
     public Date getPublishedDate() {
-        return mPublishedDate;
+        return publishedDate;
     }
 
     public boolean getHasPublishedYear() {
-        return mHasPublishedYear;
+        return hasPublishedYear;
     }
 
     public  boolean getHasPublishedMonth() {
-        return mHasPublishedMonth;
+        return hasPublishedMonth;
     }
 
     public String getUrl() {
-        return mUrl;
+        return url;
     }
 
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 }

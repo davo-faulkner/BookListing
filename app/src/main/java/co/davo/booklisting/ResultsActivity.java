@@ -20,9 +20,10 @@ import java.util.ArrayList;
 public class ResultsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Book>> {
     public static final String LOG_TAG = ResultsActivity.class.getName();
     private static final int BOOK_LOADER_ID = 1;
-    private TextView mEmptyStateTextView;
-    private ProgressBar mProgressBar;
-    private BookAdapter mBookAdapter;
+
+    private TextView emptyStateTextView;
+    private ProgressBar progressBar;
+    private BookAdapter bookAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,8 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
         setContentView(R.layout.activity_results);
 
         ListView bookListView = (ListView) findViewById(R.id.list);
-        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
-        bookListView.setEmptyView(mEmptyStateTextView);
+        emptyStateTextView = (TextView) findViewById(R.id.empty_view);
+        bookListView.setEmptyView(emptyStateTextView);
 
         ConnectivityManager cm =
                 (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -40,24 +41,24 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
         boolean isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        mProgressBar = (ProgressBar) findViewById(R.id.loading_spinner);
+        progressBar = (ProgressBar) findViewById(R.id.loading_spinner);
 
-        mBookAdapter = new BookAdapter(this, new ArrayList<Book>());
+        bookAdapter = new BookAdapter(this, new ArrayList<Book>());
 
         LoaderManager loaderManager = getLoaderManager();
 
         if (!isConnected) {
-            mProgressBar.setVisibility(View.GONE);
-            mEmptyStateTextView.setText(R.string.no_internet_connection);
+            progressBar.setVisibility(View.GONE);
+            emptyStateTextView.setText(R.string.no_internet_connection);
         } else {
             loaderManager.initLoader(BOOK_LOADER_ID, null, this);
 
-            bookListView.setAdapter(mBookAdapter);
+            bookListView.setAdapter(bookAdapter);
 
             bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Book currentBook = mBookAdapter.getItem(position);
+                    Book currentBook = bookAdapter.getItem(position);
 
                     Uri bookUri = Uri.parse(currentBook.getUrl());
 
@@ -76,19 +77,19 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
-        mProgressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
 
-        mEmptyStateTextView.setText(R.string.no_books_found);
+        emptyStateTextView.setText(R.string.no_books_found);
 
-        mBookAdapter.clear();
+        bookAdapter.clear();
 
         if (data != null && !data.isEmpty()) {
-            mBookAdapter.addAll(data);
+            bookAdapter.addAll(data);
         }
     }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<Book>> loader) {
-        mBookAdapter.clear();
+        bookAdapter.clear();
     }
 }

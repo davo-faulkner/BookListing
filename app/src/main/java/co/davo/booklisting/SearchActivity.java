@@ -11,10 +11,10 @@ import android.widget.EditText;
 public class SearchActivity extends AppCompatActivity {
     private static final String BASE_QUERY_URL = "https://www.googleapis.com/books/v1/volumes?q=";
     private static final String MAX_RESULTS_URL_FRAGMENT = "&maxResults=10";
-    private static String mQueryUrl;
+    private static String queryUrl;
 
     public static String getQueryUrl() {
-        return mQueryUrl;
+        return queryUrl;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mQueryUrl = BASE_QUERY_URL + searchEditText.getText().toString() + MAX_RESULTS_URL_FRAGMENT;
+                queryUrl = BASE_QUERY_URL + searchEditText.getText().toString() + MAX_RESULTS_URL_FRAGMENT;
 
                 Intent resultsIntent = new Intent(SearchActivity.this, ResultsActivity.class);
                 startActivity(resultsIntent);
