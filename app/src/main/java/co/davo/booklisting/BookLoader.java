@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
 
-    private String mUrl;
+    private String url;
 
     public BookLoader(Context context, String url) {
         super(context);
-        mUrl = url;
+        this.url = url;
     }
 
     @Override
@@ -25,10 +25,10 @@ public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
 
     @Override
     public ArrayList<Book> loadInBackground() {
-        if (mUrl == null) {
+        if (url == null) {
             return null;
         }
-        ArrayList<Book> books = QueryUtils.extractBooks(mUrl);
+        ArrayList<Book> books = QueryUtils.extractBooks(url);
         return books;
     }
 }
