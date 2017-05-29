@@ -102,8 +102,10 @@ public final class QueryUtils {
             }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the book JSON results", e);
+            ResultsActivity.setHasJsonException(true);
         } catch (ParseException e) {
             Log.e(LOG_TAG, "Problem parsing the Date", e);
+            ResultsActivity.setHasParseException(true);
         }
         return books;
     }
@@ -115,6 +117,7 @@ public final class QueryUtils {
             booksJsonString = makeHttpRequest(url);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error closing input stream", e);
+            ResultsActivity.setHasIoException(true);
         }
         return booksJsonString;
     }
@@ -136,10 +139,14 @@ public final class QueryUtils {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
+                String badResponseCode = "Error response code: " + urlConnection.getResponseCode();
+                Log.e(LOG_TAG, badResponseCode);
+                ResultsActivity.setHasBadResponseCode(true);
+                ResultsActivity.setBadResponseCode(urlConnection.getResponseCode());
             }
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+            Log.e(LOG_TAG, "Problem retrieving the book JSON results", e);
+            ResultsActivity.setHasIoException2(true);
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -171,6 +178,7 @@ public final class QueryUtils {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
             Log.e(LOG_TAG, "Error creating URL", e);
+            ResultsActivity.setHasMalformedUrlException(true);
         }
         return url;
     }

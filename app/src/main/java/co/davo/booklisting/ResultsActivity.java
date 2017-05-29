@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,41 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
     private TextView emptyStateTextView;
     private ProgressBar progressBar;
     private BookAdapter bookAdapter;
+    private static boolean hasJsonException = false;
+    private static boolean hasParseException = false;
+    private static boolean hasIoException = false;
+    private static boolean hasBadResponseCode = false;
+    private static int badResponseCode;
+    private static boolean hasIoException2 = false;
+    private static boolean hasMalformedUrlException = false;
+
+    public static void setHasJsonException(boolean hasJsonException) {
+        ResultsActivity.hasJsonException = hasJsonException;
+    }
+
+    public static void setHasParseException(boolean hasParseException) {
+        ResultsActivity.hasParseException = hasParseException;
+    }
+
+    public static void setHasIoException(boolean hasIoException) {
+        ResultsActivity.hasIoException = hasIoException;
+    }
+
+    public static void setHasBadResponseCode(boolean hasBadResponseCode) {
+        ResultsActivity.hasBadResponseCode = hasBadResponseCode;
+    }
+
+    public static void setBadResponseCode(int badResponseCode) {
+        ResultsActivity.badResponseCode = badResponseCode;
+    }
+
+    public static void setHasIoException2(boolean hasIoException2) {
+        ResultsActivity.hasIoException2 = hasIoException2;
+    }
+
+    public static void setHasMalformedUrlException(boolean hasMalformedUrlException) {
+        ResultsActivity.hasMalformedUrlException = hasMalformedUrlException;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +121,25 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
 
         if (data != null && !data.isEmpty()) {
             bookAdapter.addAll(data);
+        }
+        if (hasJsonException) {
+            Toast.makeText(this, "Problem parsing the book JSON results", Toast.LENGTH_SHORT).show();
+        }
+        if (hasParseException) {
+            Toast.makeText(this, "Problem parsing the Date", Toast.LENGTH_SHORT).show();
+        }
+        if (hasIoException) {
+            Toast.makeText(this, "Error closing input stream", Toast.LENGTH_SHORT).show();
+        }
+        if (hasBadResponseCode) {
+            String badResponseCodeString = "Error response code " + badResponseCode;
+            Toast.makeText(this, badResponseCodeString, Toast.LENGTH_SHORT).show();
+        }
+        if (hasIoException2) {
+            Toast.makeText(this, "Problem retrieving the book JSON results", Toast.LENGTH_SHORT).show();
+        }
+        if (hasMalformedUrlException) {
+            Toast.makeText(this, "Error creating URL", Toast.LENGTH_SHORT).show();
         }
     }
 
