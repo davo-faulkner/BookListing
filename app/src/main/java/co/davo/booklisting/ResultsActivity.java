@@ -22,6 +22,10 @@ public class ResultsActivity extends AppCompatActivity implements LoaderManager.
     public static final String LOG_TAG = ResultsActivity.class.getName();
     private static final int BOOK_LOADER_ID = 1;
 
+//    private RecyclerView recyclerView;
+//    private RecyclerView.Adapter recyclerViewAdapter;
+//    private RecyclerView.LayoutManager layoutManager;
+
     private TextView emptyStateTextView;
     private ProgressBar progressBar;
     private BookAdapter bookAdapter;
